@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+5th way to connect our smart contracts to Metamask: Using next.js + Web3Modal
 
-## Getting Started
+Following from "https://www.youtube.com/watch?v=pdsYCkUWrgQ"
 
-First, run the development server:
+The package that we're gonna add is Web3Modal.
+This is a package that when we hit connect it will automatically prompt us with the fancy wallet icons/buttons to choose, instead of having to code this buttons by ourselves.
+Provides that way to connect and to know the provider, but the rest is pretty much the same as we did with just next.js and ethers"connect-to-wallets-part2--nextjs-ethers".
+The "Web3react" and "Moralis" way are really similar (Moralis being the simplest), while this one (Web3Modal) offers that easy integration with multiple wallets by having that ui to choose the wallets integrated, but the majority of the implementation is next.js. Web3React is also close to nextjs and ethers to be honest.
 
-```bash
-npm run dev
-# or
-yarn dev
+https://github.com/scaffold-eth/scaffold-eth/tree/master/packages/react-app/src/components
+This repo is insane to reverse engineer react code to learn and aply into our projects. Patrick recommends a lot.
+Its created by Austin Griffith and applies this web3modal.
+https://github.com/ethereum-boilerplate/ethereum-boilerplate (another insane repo to reverse engineer to learn react into web3, but applies Moralis, not web3modal)
+Both of this are insane projects to look up if I need to learn more about react in web3.
+
+To try this repo:
+
+```
+git clone https://github.com/MrAbuz/connect-to-wallets-part5--Nextjs-Web3modal
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To open the project on a browser tab:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+yarn dev
+then click the url it provides (it opens a tab)
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Then open a new terminal (a 2nd terminal), and:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+cd ..
+git clone https://github.com/MrAbuz/connect-to-wallets-part0--just-to-get-hardhat-sol-code
+yarn
+yarn hardhat node
+```
 
-## Learn More
+Copy the rpc url provided in the hardhat node that you created, then go to your metamask, add a new network, and create a new network with that copied rpc url and chainid: 31337.
+Then pick one private key from the ones provided in hardhat node and import it to your metamask.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+With all of this you will be able to test this repo! have fun :)
